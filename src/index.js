@@ -1,4 +1,6 @@
 import "./style.css";
-// import board from "./board.js";
+import board from "./board.js";
 
-console.log("Hello World");
+const controller = (function () {
+  board();
+}());
