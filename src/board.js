@@ -1,5 +1,7 @@
+import Icon from "./assets/knight.png";
+
 const board = () => {
-  const startLocation = [7, 0];
+  const startLocation = [0, 0];
   const coordinates = [];
   const chessTable = document.createElement("table");
 
@@ -35,7 +37,7 @@ const board = () => {
   cellNodes.forEach((cellNode) => {
     if (startLocation.toString() === cellNode.dataset.coordinates) {
       const knightImg = document.createElement("img");
-      knightImg.src = "./assets/knight/svg";
+      knightImg.src = Icon;
       cellNode.appendChild(knightImg);
     }
   });
