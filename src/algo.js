@@ -13,7 +13,7 @@ const chessSquare = (x, y) => {
   ];
 
   const getPredecessor = () => predecessor;
-  const setOredecessor = (newPredecessor) => {
+  const setPredecessor = (newPredecessor) => {
     predecessor = predecessor || newPredecessor;
   };
 
@@ -29,4 +29,39 @@ const chessSquare = (x, y) => {
       return chessSquare(newX, newY);
     }
   };
+
+  if (squareRegistry.has(name())) {
+    return squareRegistry.get(name());
+  }
+  const newSquare = {
+    name, getPredecessor, setPredecessor, possibleKnightMoves,
+  };
+  squareRegistry.set(name(), newSquare);
+  return newSquare;
 };
+
+const knightTravails = (start, finish) => {
+  squareRegistry.clear();
+
+  const origin = chessSquare(...start);
+  const target = chessSquare(...finish);
+
+  const queue = [origin];
+  while (!queue.includes(target)) {
+    const currentSquare = queue.shift();
+
+    const enqueueList = currentSquare.possibleKnightMoves();
+    enqueueList.forEach((square) => square.setPredecessor(currentSquare));
+    queue.push(...enqueueList);
+  }
+  const path = [target];
+  while (!path.includes(origin)) {
+    const prevSquare = path[0].getPredecessor();
+    path.unshift(prevSquare);
+  }
+  console.log(`The shortest path was ${path.length - 1} moves`);
+  console.log("The moves were:");
+  path.forEach((square) => console.log(square.name()));
+};
+
+export default knightTravails;
