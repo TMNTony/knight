@@ -1,5 +1,5 @@
 const board = () => {
-  const startLocation = [0, 0];
+  const startLocation = [7, 0];
   const coordinates = [];
   const chessTable = document.createElement("table");
 
@@ -7,11 +7,11 @@ const board = () => {
   for (let i = 0; i < 8; i++) {
     const row = document.createElement("tr");
     const rowCoord = Math.abs(i - 7);
-    row.textContent = rowCoord;
+    // row.textContent = rowCoord;
     for (let z = 0; z < 8; z++) {
       const tableCell = document.createElement("td");
       const colCoord = z;
-      tableCell.textContent = colCoord;
+      //   tableCell.textContent = colCoord;
       if ((i + z) % 2 == 0) {
         tableCell.setAttribute("class", "cell white");
         row.appendChild(tableCell);
