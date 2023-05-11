@@ -29,16 +29,20 @@ img {
     width: 75px;
 }
 
-.start {
-    margin-top: 25px   ;
-}
-
 .reset {
-    margin-top: 15px;
+    margin-top: 50px;
 }
 
 .center {
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
+}
+
+.display {
+    height: 200px;
+    width: 300px;
+    background-color: darkgray;
+    text-align: center;
+    box-shadow: 10px 10px 5px black;
 }

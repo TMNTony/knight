@@ -44,4 +44,11 @@ const board = () => {
   document.body.appendChild(chessTable);
 };
 
+const resetBoard = (function () {
+  const resetButton = document.querySelector(".reset");
+  resetButton.addEventListener("click", () => {
+    location.reload();
+  });
+}());
+
 export default board;
